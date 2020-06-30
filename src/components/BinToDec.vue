@@ -8,8 +8,9 @@
         <a class="p-2 text-dark" href="https://www.linkedin.com/in/rubens-carvalho-892584120">Linkedin</a>
       </nav>
     </div>
-
-    <img alt="Vue logo" src="../assets/logo.png">
+<div id="imagem">
+    <img alt="Vue logo" src="../assets/numero_binario.png">
+    </div>
 
     <b-container fluid id="container_form">
      <b-form-input v-model = "titulo.numero" type="text"/>
@@ -97,12 +98,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-img{
-  margin-left: 40%;
+#imagem{
+  margin-left: 38%;
 }
 
 #container_form{
   width: 50%;
+  margin-top: 3%;
 }
 
 .numero_apresentacao{
