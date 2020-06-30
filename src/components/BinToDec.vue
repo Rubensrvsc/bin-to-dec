@@ -1,6 +1,15 @@
 <template>
  <div class="hello">
     
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Rubens Carvalho</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="https://github.com/Rubensrvsc">GitHub</a>
+        <a class="p-2 text-dark" href="https://www.linkedin.com/in/rubens-carvalho-892584120">Linkedin</a>
+      </nav>
+    </div>
+
+    <img alt="Vue logo" src="../assets/logo.png">
 
     <b-container fluid id="container_form">
      <b-form-input v-model = "titulo.numero" type="text"/>
@@ -10,8 +19,8 @@
     <div id="apresentacao_numeros">
       <b-card class="tamanho_card"
       header="Apresentação dos resultados">
-    <h4>Numero: {{titulo.numero}}</h4>
-    <h3> Soma: {{titulo.soma}}</h3>
+    <h4 class="numero_apresentacao">Número: {{titulo.numero}}</h4>
+    <h3 class="numero_apresentacao"> Soma: {{titulo.soma}}</h3>
       </b-card>
     </div>
   </div>
@@ -88,8 +97,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+img{
+  margin-left: 40%;
+}
+
 #container_form{
   width: 50%;
+}
+
+.numero_apresentacao{
+  margin-left: 38%;
 }
 
 .tamanho_card{
@@ -106,6 +123,7 @@ export default {
 }
 
 .button_form{
+  margin-left: 35%;
   margin-top: 3%;
 }
 
