@@ -40,11 +40,9 @@ export default {
   data(){
 
     return {
-      titulo: {
-        title: '',
-        numero: '',
+      numero: {
+        num: '',
         verifica_numero: false,
-        soma: 0,
       },
       controle: {
         cont: 0,
@@ -59,37 +57,33 @@ export default {
     },
 
     calculaNumeroParaDecimal(){
-      if(this.titulo.numero.length > 8){
+      if(this.numero.num.length > 8){
         alert("Numero maior que 8 digitos")
-        this.titulo.verifica_numero = true;
-        this.titulo.numero='';
+        this.numero.verifica_numero = true;
+        this.numero.num='';
       }
       else{
-        for(let i=0;i<this.titulo.numero.length;i++){
-          if (this.titulo.numero[i] != '0' && this.titulo.numero[i] != '1'){
+        for(let i=0;i<this.numero.num.length;i++){
+          if (this.numero.num[i] != '0' && this.numero.num[i] != '1'){
             alert("existe numero não binário");
-            this.titulo.verifica_numero = true;
-            this.titulo.numero='';
+            this.numero.verifica_numero = true;
+            this.numero.num='';
             
           }
-          //console.log(this.titulo.numero[i]);
         }
       }
 
-        if(this.titulo.verifica_numero === false){
-          console.log("entrou");
-          for(let i = this.titulo.numero.length - 1; i>=0;i--){
-            this.controle.acumula_soma += Number(this.titulo.numero[i])  * (2 ** this.controle.cont);
+        if(this.numero.verifica_numero === false){
+          for(let i = this.numero.num.length - 1; i>=0;i--){
+            this.controle.acumula_soma += Number(this.numero.num[i])  * (2 ** this.controle.cont);
             this.controle.cont++;
-            console.log(this.controle.cont);
           }
           this.controle.cont=0;
-          this.titulo.soma = this.controle.acumula_soma;
-          console.log("Soma: "+this.titulo.soma);
+          this.numero.soma = this.controle.acumula_soma;
           this.controle.acumula_soma=0;
         }
 
-        this.titulo.verifica_numero = false;
+        this.numero.verifica_numero = false;
     }
   }
 }
