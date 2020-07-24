@@ -1,3 +1,4 @@
+ 
 <template>
  <div class="hello">
     
@@ -13,15 +14,15 @@
     </div>
 
     <b-container fluid id="container_form">
-     <b-form-input v-model = "titulo.numero" type="text"/>
+     <b-form-input v-model = "nmr.num" type="text"/>
       <b-button variant="outline-primary" class="button_form"
        @click="calculaNumeroParaDecimal"> Enviar numero</b-button>
     </b-container>
     <div id="apresentacao_numeros">
       <b-card class="tamanho_card"
       header="Apresentação dos resultados">
-    <h4 class="numero_apresentacao">Número: {{titulo.numero}}</h4>
-    <h3 class="numero_apresentacao"> Soma: {{titulo.soma}}</h3>
+    <h4 class="numero_apresentacao">Número: {{nmr.num}}</h4>
+    <h3 class="numero_apresentacao"> Soma: {{controle.soma}}</h3>
       </b-card>
     </div>
   </div>
@@ -32,58 +33,54 @@ export default {
   name: 'BinToDec',
   props: {
     msg: String,
-    //title: String,
-    nome: String,
-    numero: Number
   },
-
   data(){
-
     return {
-      numero: {
+      nmr: {
         num: '',
         verifica_numero: false,
       },
       controle: {
         cont: 0,
-        acumula_soma: 0
+        acumula_soma: 0,
+        soma: 0
       }
     }
   },
-
   methods:{
     enviarNome(){
       this.nome=this.titulo.title;
     },
-
     calculaNumeroParaDecimal(){
-      if(this.numero.num.length > 8){
-        alert("Numero maior que 8 digitos")
-        this.numero.verifica_numero = true;
-        this.numero.num='';
+      if(this.nmr.num.length > 8){
+        alert("Número maior que 8 digitos")
+        this.nmr.verifica_numero = true;
+        this.nmr.num='';
+        this.controle.soma=0;
       }
       else{
-        for(let i=0;i<this.numero.num.length;i++){
-          if (this.numero.num[i] != '0' && this.numero.num[i] != '1'){
-            alert("existe numero não binário");
-            this.numero.verifica_numero = true;
-            this.numero.num='';
+        for(let i=0;i<this.nmr.num.length;i++){
+          if (this.nmr.num[i] != '0' && this.nmr.num[i] != '1'){
+            alert("Existe numero não binário");
+            this.nmr.verifica_numero = true;
+            this.nmr.num='';
+            this.controle.soma=0;
             
           }
         }
       }
+        if(this.nmr.verifica_numero === false){
 
-        if(this.numero.verifica_numero === false){
-          for(let i = this.numero.num.length - 1; i>=0;i--){
-            this.controle.acumula_soma += Number(this.numero.num[i])  * (2 ** this.controle.cont);
+          for(let i = this.nmr.num.length - 1; i>=0;i--){
+            this.controle.acumula_soma += Number(this.nmr.num[i])  * (2 ** this.controle.cont);
             this.controle.cont++;
+
           }
           this.controle.cont=0;
-          this.numero.soma = this.controle.acumula_soma;
+          this.controle.soma = this.controle.acumula_soma;
           this.controle.acumula_soma=0;
         }
-
-        this.numero.verifica_numero = false;
+        this.nmr.verifica_numero = false;
     }
   }
 }
@@ -91,38 +88,30 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 #imagem{
   margin-left: 38%;
 }
-
 #container_form{
   width: 50%;
   margin-top: 3%;
 }
-
 .numero_apresentacao{
   margin-left: 38%;
 }
-
 .tamanho_card{
   margin-left: 25%;
   width: 50%;
 }
-
 #apresentacao_numeros{
   margin-top: 3%;
 }
-
 #distancia_link{
   padding: 3%;
 }
-
 .button_form{
   margin-left: 35%;
   margin-top: 3%;
 }
-
 h3 {
   margin: 40px 0 0;
 }
