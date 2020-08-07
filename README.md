@@ -4,6 +4,8 @@ Projeto de treino usando a linguagem Javascript e o framework VueJs. Junto como 
 
 O link com a descrição do projeto pode ser encontrada neste link: https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md
 
+A aplicação em funcionamento pode ser encontrada aqui: https://bin-to-dec.netlify.app/
+
 **A lista do que deveria ser feito é encontrado abaixo**
 
 - [x] User can enter up to 8 binary digits in one input field
