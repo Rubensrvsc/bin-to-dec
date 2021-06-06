@@ -65,6 +65,8 @@ export default {
             this.nmr.verifica_numero = true;
             this.nmr.num='';
             this.controle.soma=0;
+
+            
             
           }
         }
